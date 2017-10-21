@@ -2,7 +2,6 @@ package gahahahhahsofialevelonedsadhl;
 
 import javax.swing.JFrame;
 import javax.swing.JButton;
-
 public class ChuckleClicker {
 	/*Make a ChuckleClicker class, a main method and a makeButtons method. Put a pop-up in the makeButtons method and get it working. You will need to instantiate your class and call method an instance of it. 
 
@@ -20,15 +19,15 @@ public class ChuckleClicker {
 
 	Use JOptionPane to print the joke or the punchline depending on which button was clicked.*/
 	public static void main(String[] args) {
+		makeButtons();
 		}
-	public void makeButtons() {
+	static void makeButtons() {
 		JFrame frame = new JFrame();
 		frame.setVisible(true);
-		System.out.println("Neils Bohr");
-		JButton buttonuno = new JButton();
-		JButton buttondos = new JButton();
-		frame.add(buttondos);
-		frame.add(buttonuno);
+		JButton button1 = new JButton();
+		JButton button2 = new JButton();
+		frame.add(button2);
+		frame.add(button1);
 	}
 
 

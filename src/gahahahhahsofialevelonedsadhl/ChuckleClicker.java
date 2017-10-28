@@ -1,8 +1,15 @@
 package gahahahhahsofialevelonedsadhl;
-
+import javax.swing.JPanel;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
-public class ChuckleClicker {
+public class ChuckleClicker implements ActionListener {
+	JButton buttonone;
+	JButton buttontwo;
 	/*Make a ChuckleClicker class, a main method and a makeButtons method. Put a pop-up in the makeButtons method and get it working. You will need to instantiate your class and call method an instance of it. 
 
 	Make a JFrame in makeButtons() method and get it to show.
@@ -19,15 +26,40 @@ public class ChuckleClicker {
 
 	Use JOptionPane to print the joke or the punchline depending on which button was clicked.*/
 	public static void main(String[] args) {
-		makeButtons();
+		ChuckleClicker bah = new ChuckleClicker();
+		bah.makeButtons();
 		}
-	static void makeButtons() {
+	 public void makeButtons() {
 		JFrame frame = new JFrame();
 		frame.setVisible(true);
-		JButton button1 = new JButton();
-		JButton button2 = new JButton();
-		frame.add(button2);
-		frame.add(button1);
+		JPanel panel = new JPanel();
+		frame.add(panel);
+		buttonone = new JButton();
+		buttontwo = new JButton();
+		panel.add(buttontwo);
+		panel.add(buttonone);
+		buttonone.setText("punchline");
+		buttontwo.setText("joke");
+		buttonone.addActionListener(this);
+		buttontwo.addActionListener(this);
+		frame.pack();
+		
+	
+		
+	
+		
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource()==buttontwo) {
+			JOptionPane.showMessageDialog(null, "What did the wall say to the ceiling?");
+			
+		}
+		if(e.getSource()==buttonone) {
+			JOptionPane.showMessageDialog(null,"'I'll meet you at the corner.'");
+			
+		}
+		
 	}
 
 

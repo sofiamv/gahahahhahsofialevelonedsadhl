@@ -19,6 +19,7 @@ public class Whackamole implements ActionListener {
 	int rand;
 	JButton button;
 	int scoretracker;
+	
 	//Make a drawButtons method that takes a random number as a parameter. It should make a GUI like this, but the “mole!” location is random.
 	//[Hint: set the size of the frame rather than packing it.]
 public static void main(String[] args) {
@@ -31,12 +32,14 @@ public void DrawButtons() {
 	frame1.setVisible(true);
 	frame1.setSize(500, 500);
 	frame1.add(panel);
+	frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	Random rando = new Random();
 	rand = rando.nextInt(40);
 for( int a = 0; a <= 39; a++) {
 	if(a==rand) {
 		panel.add(buutton);
 		buutton.addActionListener(this);
+		
 	}else {
 	button = new JButton();
 	panel.add(button);
@@ -78,17 +81,21 @@ private void playSound(String fileName) {
 public void actionPerformed(ActionEvent e) {
 	// TODO Auto-generated method stub
 	if(e.getSource()!=buutton) {
-	speak1("lol you are an idiot! ha ha ha!");
+		scoretracker--;
+		speak1("lol you are an IDIOT! ha ha ha!!");
+		speak1("ha ha ha ha ha you are a MORON!!");
+			speak1("YOU ARE A DISGRACE AND EMBARRASSMENT OF THIS WORLD!");
+	frame1.dispose();
+	new Whackamole().DrawButtons();
 	}
-	if(e.getSource()!=button) {
-		frame1.dispose();
-	DrawButtons();
+	else {
+	 new Whackamole().DrawButtons();
 	playSound("339308__kalibrk__jirkascream-2.mp3");
 	scoretracker++;
 	if(scoretracker==10) {
-	}
-	}
-}
+	endGame(new Date(), 10);	
+	}}}
+		
 
 void speak1(String words) {
 try {

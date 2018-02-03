@@ -19,7 +19,9 @@ JButton buutton = new JButton("mole");
 	JPanel panel;
 	int rand;
 	JButton button;
+	int scoretrackertwo = 0;
 	int scoretracker = 0;
+	Date a = new Date();
 	// Make a drawButtons method that takes a random number as a parameter. It
 	// should make a GUI like this, but the “mole!” location is random.
 	// [Hint: set the size of the frame rather than packing it.]
@@ -71,7 +73,7 @@ JButton buutton = new JButton("mole");
 	private void endGame(Date timeAtStart, int molesWhacked) {
 		Date timeAtEnd = new Date();
 		JOptionPane.showMessageDialog(null, "Your whack rate is "
-				+ ((timeAtEnd.getTime() - timeAtStart.getTime()) / 1000.00 / molesWhacked) + " moles per second.");
+				+ ((timeAtEnd.getTime() - timeAtStart.getTime()) / 1000.00 / scoretracker) + " moles per second.");
 	}
 
 	// Progressively insult them if they hit something other than the mole! button.
@@ -91,8 +93,9 @@ JButton buutton = new JButton("mole");
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if (!(e.getSource() == buutton)) {
-			scoretracker--;
+			scoretrackertwo++;
 			System.out.println(scoretracker);
+			System.out.println(scoretrackertwo);
 			
 
 		} else if(e.getSource()== buutton) {
@@ -101,20 +104,19 @@ JButton buutton = new JButton("mole");
 		
 		}
 		if (scoretracker >= 10) {
-			endGame(new Date(), 10);
+			endGame(a, scoretracker);
 			frame1.dispose();
 		}
-		if (scoretracker == -2) {
+		if (scoretrackertwo == 2) {
 			speak1("Idiot.");
-		} else if (scoretracker == -3) {
+		} else if (scoretrackertwo == 3) {
 			speak1("moron.");
-		} else if (scoretracker == -4) {
+		} else if (scoretrackertwo == 4) {
 			speak1("you are a complete waste of atoms.");
 		}
 		frame1.dispose();
 		this.DrawButtons();
 	}
-
 	void speak1(String words) {
 		try {
 			Runtime.getRuntime().exec("say " + words).waitFor();

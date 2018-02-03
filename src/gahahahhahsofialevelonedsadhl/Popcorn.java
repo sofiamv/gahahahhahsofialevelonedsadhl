@@ -49,6 +49,11 @@ package gahahahhahsofialevelonedsadhl;
 			}
 		}
 		public static void main(String[] args) {
+Popcorn b = new Popcorn("normal");
+Microwave a = new Microwave();
+a.putInMicrowave(b);
+a.setTime(2);
+a.startMicrowave();
 
 			
 		}

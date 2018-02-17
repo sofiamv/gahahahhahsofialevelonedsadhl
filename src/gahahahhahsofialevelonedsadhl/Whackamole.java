@@ -101,6 +101,7 @@ JButton buutton = new JButton("mole");
 		} else if(e.getSource()== buutton) {
 			scoretracker++;
 			System.out.println(scoretracker);
+			
 		
 		}
 		if (scoretracker >= 10) {
@@ -111,7 +112,7 @@ JButton buutton = new JButton("mole");
 			speak1("Idiot.");
 		} else if (scoretrackertwo == 3) {
 			speak1("moron.");
-		} else if (scoretrackertwo == 4) {
+		} else if (scoretrackertwo == 4 && scoretracker==0) {
 			speak1("you are a complete waste of atoms.");
 		}
 		frame1.dispose();
